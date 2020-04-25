@@ -12,7 +12,13 @@ struct ContentView: View {
     @ObservedObject var viewModel = ContentViewModel(controller: nil)
     var body: some View {
         VStack {
-            Text("\(viewModel.controller?.vendorName ?? "No Controller Connected")")
+            Text("\(viewModel.venderName ?? "No Controller Connected")")
+            Text("Left: \(viewModel.left.isPressed ? "Pressed" : "No")")
+            Text("Right: \(viewModel.right.isPressed ? "Pressed" : "No")")
+            Text("Up: \(viewModel.up.isPressed ? "Pressed" : "No")")
+            Text("Down: \(viewModel.down.isPressed ? "Pressed" : "No")")
+            Text("xAxis: \(viewModel.xAxis.value)")
+            Text("yAxis: \(viewModel.yAxis.value)")
         }
     }
 }
