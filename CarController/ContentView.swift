@@ -9,8 +9,11 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var viewModel = ContentViewModel(controller: nil)
     var body: some View {
-        Text("Hello, World!")
+        VStack {
+            Text("\(viewModel.controller?.vendorName ?? "No Controller Connected")")
+        }
     }
 }
 

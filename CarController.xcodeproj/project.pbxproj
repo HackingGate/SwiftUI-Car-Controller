@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C7682F382454451000012CA5 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7682F372454451000012CA5 /* ContentViewModel.swift */; };
 		C7A3690F240407C200D9FBF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A3690E240407C200D9FBF5 /* AppDelegate.swift */; };
 		C7A36911240407C200D9FBF5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A36910240407C200D9FBF5 /* SceneDelegate.swift */; };
 		C7A36913240407C200D9FBF5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A36912240407C200D9FBF5 /* ContentView.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C7682F372454451000012CA5 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		C7A3690B240407C200D9FBF5 /* CarController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7A3690E240407C200D9FBF5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7A36910240407C200D9FBF5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 				C7A3690E240407C200D9FBF5 /* AppDelegate.swift */,
 				C7A36910240407C200D9FBF5 /* SceneDelegate.swift */,
 				C7A36912240407C200D9FBF5 /* ContentView.swift */,
+				C7682F372454451000012CA5 /* ContentViewModel.swift */,
 				C7A36914240407C300D9FBF5 /* Assets.xcassets */,
 				C7A36919240407C300D9FBF5 /* LaunchScreen.storyboard */,
 				C7A3691C240407C300D9FBF5 /* Info.plist */,
@@ -148,6 +151,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7682F382454451000012CA5 /* ContentViewModel.swift in Sources */,
 				C7A3690F240407C200D9FBF5 /* AppDelegate.swift in Sources */,
 				C7A36911240407C200D9FBF5 /* SceneDelegate.swift in Sources */,
 				C7A36913240407C200D9FBF5 /* ContentView.swift in Sources */,
@@ -290,6 +294,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"CarController/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = CarController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -312,6 +317,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"CarController/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = CarController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
