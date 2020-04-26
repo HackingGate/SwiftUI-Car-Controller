@@ -48,6 +48,9 @@ class ContentViewModel: ObservableObject {
     @Published var xAxis = GCControllerAxisInput()
     @Published var yAxis = GCControllerAxisInput()
 
+    // Socket
+    @Published var socketClient = SocketClient()
+
     private var disposables = Set<AnyCancellable>()
 
     init() {
@@ -126,15 +129,18 @@ class ContentViewModel: ObservableObject {
             if (gamepad.dpad == element) {
                 self.dpad = gamepad.dpad
                 self.updateDirection(gamepad.dpad)
+                self.sendMoveData(gamepad.rightThumbstick)
             }
             // 2 Thumbsticks
             if (gamepad.leftThumbstick == element) {
                 self.leftThumbstick = gamepad.leftThumbstick
                 self.updateDirection(gamepad.leftThumbstick)
+                self.sendMoveData(gamepad.leftThumbstick)
             }
             if (gamepad.rightThumbstick == element) {
                 self.rightThumbstick = gamepad.rightThumbstick
                 self.updateDirection(gamepad.rightThumbstick)
+                self.sendMoveData(gamepad.rightThumbstick)
             }
         }
     }
@@ -146,5 +152,10 @@ class ContentViewModel: ObservableObject {
         self.down = pad.down
         self.xAxis = pad.xAxis
         self.yAxis = pad.yAxis
+    }
+
+    func sendMoveData(_ pad: GCControllerDirectionPad) {
+        let moveData = CarDriver.getCarMove(xAxisValue: pad.xAxis.value, yAxisValue: pad.yAxis.value)
+        self.socketClient.carMove(moveData)
     }
 }

@@ -19,6 +19,7 @@ struct ContentView: View {
                 Text("\(viewModel.connected ? "Connected" : "Not Connected")")
             }
             .padding()
+            Spacer()
             HStack {
                 VStack {
                     Text("L1: \(viewModel.leftShoulder.isPressed ? "Pressed" : "No")")
@@ -43,42 +44,42 @@ struct ContentView: View {
                 .padding()
             }
             Spacer()
+//            HStack {
+//                VStack {
+//                    Text("Left: \(viewModel.dpad.left.isPressed ? "Pressed" : "No")")
+//                    Text("Right: \(viewModel.dpad.right.isPressed ? "Pressed" : "No")")
+//                    Text("Up: \(viewModel.dpad.up.isPressed ? "Pressed" : "No")")
+//                    Text("Down: \(viewModel.dpad.down.isPressed ? "Pressed" : "No")")
+////                    Text("xAxis: \(viewModel.dpad.xAxis.value)")
+////                    Text("yAxis: \(viewModel.dpad.yAxis.value)")
+//                }
+//                .padding()
+//                Spacer()
+//                VStack {
+//                    Text("A: \(viewModel.buttonA.isPressed ? "Pressed" : "No")")
+//                    Text("B: \(viewModel.buttonB.isPressed ? "Pressed" : "No")")
+//                    Text("X: \(viewModel.buttonX.isPressed ? "Pressed" : "No")")
+//                    Text("Y: \(viewModel.buttonY.isPressed ? "Pressed" : "No")")
+//                }
+//                .padding()
+//            }
+//            Spacer()
             HStack {
                 VStack {
-                    Text("Left: \(viewModel.dpad.left.isPressed ? "Pressed" : "No")")
-                    Text("Right: \(viewModel.dpad.right.isPressed ? "Pressed" : "No")")
-                    Text("Up: \(viewModel.dpad.up.isPressed ? "Pressed" : "No")")
-                    Text("Down: \(viewModel.dpad.down.isPressed ? "Pressed" : "No")")
-//                    Text("xAxis: \(viewModel.dpad.xAxis.value)")
-//                    Text("yAxis: \(viewModel.dpad.yAxis.value)")
-                }
-                .padding()
-                Spacer()
-                VStack {
-                    Text("A: \(viewModel.buttonA.isPressed ? "Pressed" : "No")")
-                    Text("B: \(viewModel.buttonB.isPressed ? "Pressed" : "No")")
-                    Text("X: \(viewModel.buttonX.isPressed ? "Pressed" : "No")")
-                    Text("Y: \(viewModel.buttonY.isPressed ? "Pressed" : "No")")
-                }
-                .padding()
-            }
-            Spacer()
-            HStack {
-                VStack {
-                    Text("Left: \(viewModel.leftThumbstick.left.isPressed ? "Pressed" : "No")")
-                    Text("Right: \(viewModel.leftThumbstick.right.isPressed ? "Pressed" : "No")")
-                    Text("Up: \(viewModel.leftThumbstick.up.isPressed ? "Pressed" : "No")")
-                    Text("Down: \(viewModel.leftThumbstick.down.isPressed ? "Pressed" : "No")")
+//                    Text("Left: \(viewModel.leftThumbstick.left.isPressed ? "Pressed" : "No")")
+//                    Text("Right: \(viewModel.leftThumbstick.right.isPressed ? "Pressed" : "No")")
+//                    Text("Up: \(viewModel.leftThumbstick.up.isPressed ? "Pressed" : "No")")
+//                    Text("Down: \(viewModel.leftThumbstick.down.isPressed ? "Pressed" : "No")")
                     Text("xAxis: \(viewModel.leftThumbstick.xAxis.value)")
                     Text("yAxis: \(viewModel.leftThumbstick.yAxis.value)")
                 }
                 .padding()
                 Spacer()
                 VStack {
-                    Text("Left: \(viewModel.rightThumbstick.left.isPressed ? "Pressed" : "No")")
-                    Text("Right: \(viewModel.rightThumbstick.right.isPressed ? "Pressed" : "No")")
-                    Text("Up: \(viewModel.rightThumbstick.up.isPressed ? "Pressed" : "No")")
-                    Text("Down: \(viewModel.rightThumbstick.down.isPressed ? "Pressed" : "No")")
+//                    Text("Left: \(viewModel.rightThumbstick.left.isPressed ? "Pressed" : "No")")
+//                    Text("Right: \(viewModel.rightThumbstick.right.isPressed ? "Pressed" : "No")")
+//                    Text("Up: \(viewModel.rightThumbstick.up.isPressed ? "Pressed" : "No")")
+//                    Text("Down: \(viewModel.rightThumbstick.down.isPressed ? "Pressed" : "No")")
                     Text("xAxis: \(viewModel.rightThumbstick.xAxis.value)")
                     Text("yAxis: \(viewModel.rightThumbstick.yAxis.value)")
                 }
