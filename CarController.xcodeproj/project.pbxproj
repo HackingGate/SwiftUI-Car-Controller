@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,9 @@
 		C7A36915240407C300D9FBF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7A36914240407C300D9FBF5 /* Assets.xcassets */; };
 		C7A36918240407C300D9FBF5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7A36917240407C300D9FBF5 /* Preview Assets.xcassets */; };
 		C7A3691B240407C300D9FBF5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7A36919240407C300D9FBF5 /* LaunchScreen.storyboard */; };
+		C7EB21B324554A1200C5DACF /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = C7EB21B224554A1200C5DACF /* SocketIO */; };
+		C7EB21B524554C1300C5DACF /* SocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EB21B424554C1300C5DACF /* SocketClient.swift */; };
+		C7EB21B72455682700C5DACF /* CarDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EB21B62455682700C5DACF /* CarDriver.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +30,8 @@
 		C7A3691A240407C300D9FBF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C7A3691C240407C300D9FBF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7A369222404082800D9FBF5 /* CarController.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CarController.entitlements; sourceTree = "<group>"; };
+		C7EB21B424554C1300C5DACF /* SocketClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketClient.swift; sourceTree = "<group>"; };
+		C7EB21B62455682700C5DACF /* CarDriver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDriver.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7EB21B324554A1200C5DACF /* SocketIO in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +70,8 @@
 				C7A36910240407C200D9FBF5 /* SceneDelegate.swift */,
 				C7A36912240407C200D9FBF5 /* ContentView.swift */,
 				C7682F372454451000012CA5 /* ContentViewModel.swift */,
+				C7EB21B424554C1300C5DACF /* SocketClient.swift */,
+				C7EB21B62455682700C5DACF /* CarDriver.swift */,
 				C7A36914240407C300D9FBF5 /* Assets.xcassets */,
 				C7A36919240407C300D9FBF5 /* LaunchScreen.storyboard */,
 				C7A3691C240407C300D9FBF5 /* Info.plist */,
@@ -96,6 +104,9 @@
 			dependencies = (
 			);
 			name = CarController;
+			packageProductDependencies = (
+				C7EB21B224554A1200C5DACF /* SocketIO */,
+			);
 			productName = CarController;
 			productReference = C7A3690B240407C200D9FBF5 /* CarController.app */;
 			productType = "com.apple.product-type.application";
@@ -124,6 +135,9 @@
 				Base,
 			);
 			mainGroup = C7A36902240407C200D9FBF5;
+			packageReferences = (
+				C7EB21B124554A1200C5DACF /* XCRemoteSwiftPackageReference "socket.io-client-swift" */,
+			);
 			productRefGroup = C7A3690C240407C200D9FBF5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -151,9 +165,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7EB21B524554C1300C5DACF /* SocketClient.swift in Sources */,
 				C7682F382454451000012CA5 /* ContentViewModel.swift in Sources */,
 				C7A3690F240407C200D9FBF5 /* AppDelegate.swift in Sources */,
 				C7A36911240407C200D9FBF5 /* SceneDelegate.swift in Sources */,
+				C7EB21B72455682700C5DACF /* CarDriver.swift in Sources */,
 				C7A36913240407C200D9FBF5 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -354,6 +370,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C7EB21B124554A1200C5DACF /* XCRemoteSwiftPackageReference "socket.io-client-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/socketio/socket.io-client-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C7EB21B224554A1200C5DACF /* SocketIO */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C7EB21B124554A1200C5DACF /* XCRemoteSwiftPackageReference "socket.io-client-swift" */;
+			productName = SocketIO;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C7A36903240407C200D9FBF5 /* Project object */;
 }
