@@ -9,19 +9,53 @@
 import Foundation
 
 struct CarMove {
-    var l: Int
-    var r: Int
+    var left_r: Bool
+    var left_d: Bool
+    var right_d: Bool
+    var right_r: Bool
 }
 
 struct CarDriver {
     static func getCarMove(xAxisValue: Float, yAxisValue: Float ) -> CarMove {
-        var moveData = CarMove(l: 0, r: 0)
+        var moveData = CarMove(left_r: false, left_d: false, right_d: false, right_r: false)
         if (yAxisValue > 0.5) {
-            moveData.l = 1
-            moveData.r = 1
+            // forward
+            moveData.left_r = false
+            moveData.left_d = true
+            moveData.right_d = true
+            moveData.right_r = false
+            if (xAxisValue < -0.5) {
+                // left
+                moveData.left_d = false
+            } else if (xAxisValue > 0.5) {
+                // right
+                moveData.right_d = false
+            }
         } else if (yAxisValue < -0.5) {
-            moveData.l = -1
-            moveData.r = -1
+            // backward
+            moveData.left_r = true
+            moveData.left_d = false
+            moveData.right_d = false
+            moveData.right_r = true
+            if (xAxisValue < -0.5) {
+                // left
+                moveData.left_r = false
+            } else if (xAxisValue > 0.5) {
+                // right
+                moveData.right_r = false
+            }
+        } else {
+            if (xAxisValue < -0.5 ) {
+                moveData.left_r = true
+                moveData.left_d = false
+                moveData.right_d = true
+                moveData.right_r = false
+            } else if (xAxisValue > 0.5) {
+                moveData.left_r = false
+                moveData.left_d = true
+                moveData.right_d = false
+                moveData.right_r = true
+            }
         }
         return moveData
     }

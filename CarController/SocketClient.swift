@@ -33,7 +33,7 @@ class SocketClient: ObservableObject {
     }
 
     func carMove(_ moveData: CarMove ) {
-        socket.emit("move", moveData.l, moveData.r)
+        socket.emit("move", moveData.left_r, moveData.left_d, moveData.right_d, moveData.right_r)
     }
 
 }
