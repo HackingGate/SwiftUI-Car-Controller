@@ -114,9 +114,11 @@ class ContentViewModel: ObservableObject {
             // Two Triggers
             if (gamepad.leftTrigger == element) {
                 self.leftTrigger = gamepad.leftTrigger
+                self.sendMoveData(gamepad.leftThumbstick, gamepad.leftTrigger, gamepad.rightTrigger)
             }
             if (gamepad.rightTrigger == element) {
                 self.rightTrigger = gamepad.rightTrigger
+                self.sendMoveData(gamepad.leftThumbstick, gamepad.leftTrigger, gamepad.rightTrigger)
             }
             // 2 Thumbstick buttons
             if (gamepad.leftThumbstickButton == element) {
@@ -129,18 +131,16 @@ class ContentViewModel: ObservableObject {
             if (gamepad.dpad == element) {
                 self.dpad = gamepad.dpad
                 self.updateDirection(gamepad.dpad)
-                self.sendMoveData(gamepad.rightThumbstick)
             }
             // 2 Thumbsticks
             if (gamepad.leftThumbstick == element) {
                 self.leftThumbstick = gamepad.leftThumbstick
                 self.updateDirection(gamepad.leftThumbstick)
-                self.sendMoveData(gamepad.leftThumbstick)
+                self.sendMoveData(gamepad.leftThumbstick, gamepad.leftTrigger, gamepad.rightTrigger)
             }
             if (gamepad.rightThumbstick == element) {
                 self.rightThumbstick = gamepad.rightThumbstick
                 self.updateDirection(gamepad.rightThumbstick)
-                self.sendMoveData(gamepad.rightThumbstick)
             }
         }
     }
@@ -156,6 +156,11 @@ class ContentViewModel: ObservableObject {
 
     func sendMoveData(_ pad: GCControllerDirectionPad) {
         let moveData = CarDriver.getCarMove(xAxisValue: pad.xAxis.value, yAxisValue: pad.yAxis.value)
+        self.socketClient.carMove(moveData)
+    }
+
+    func sendMoveData(_ leftThumbstick: GCControllerDirectionPad, _ leftTrigger: GCControllerButtonInput, _ rightTrigger: GCControllerButtonInput) {
+        let moveData = CarDriver.getCarMove(xAxisValue: leftThumbstick.xAxis.value, leftTriggerValue: leftTrigger.value, rightTriggerValue: rightTrigger.value)
         self.socketClient.carMove(moveData)
     }
 }
