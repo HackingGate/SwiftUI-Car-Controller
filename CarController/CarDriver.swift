@@ -61,6 +61,10 @@ struct CarDriver {
     }
 
     static func getCarMove(xAxisValue: Float, leftTriggerValue: Float, rightTriggerValue: Float) -> CarMove {
+        return getCarMove(xAxisValue: xAxisValue, leftThumbstickPress: false, leftTriggerValue: leftTriggerValue, rightTriggerValue: rightTriggerValue)
+    }
+
+    static func getCarMove(xAxisValue: Float, leftThumbstickPress: Bool, leftTriggerValue: Float, rightTriggerValue: Float) -> CarMove {
         var moveData = CarMove(left_r: false, left_d: false, right_d: false, right_r: false)
         if (leftTriggerValue > 0 && rightTriggerValue == 0) {
             // backward
@@ -88,7 +92,7 @@ struct CarDriver {
                 // right
                 moveData.right_d = false
             }
-        } else {
+        } else if (leftThumbstickPress) {
             if (xAxisValue < -0.5 ) {
                 // pivot left
                 moveData.left_r = true

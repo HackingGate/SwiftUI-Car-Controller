@@ -114,15 +114,16 @@ class ContentViewModel: ObservableObject {
             // Two Triggers
             if (gamepad.leftTrigger == element) {
                 self.leftTrigger = gamepad.leftTrigger
-                self.sendMoveData(gamepad.leftThumbstick, gamepad.leftTrigger, gamepad.rightTrigger)
+                self.sendMoveData(gamepad.leftThumbstick, gamepad.leftThumbstickButton, gamepad.leftTrigger, gamepad.rightTrigger)
             }
             if (gamepad.rightTrigger == element) {
                 self.rightTrigger = gamepad.rightTrigger
-                self.sendMoveData(gamepad.leftThumbstick, gamepad.leftTrigger, gamepad.rightTrigger)
+                self.sendMoveData(gamepad.leftThumbstick, gamepad.leftThumbstickButton, gamepad.leftTrigger, gamepad.rightTrigger)
             }
             // 2 Thumbstick buttons
             if (gamepad.leftThumbstickButton == element) {
                 self.leftThumbstickButton = gamepad.leftThumbstickButton
+                self.sendMoveData(gamepad.leftThumbstick, gamepad.leftThumbstickButton, gamepad.leftTrigger, gamepad.rightTrigger)
             }
             if (gamepad.rightThumbstickButton == element) {
                 self.rightThumbstickButton = gamepad.rightThumbstickButton
@@ -136,7 +137,7 @@ class ContentViewModel: ObservableObject {
             if (gamepad.leftThumbstick == element) {
                 self.leftThumbstick = gamepad.leftThumbstick
                 self.updateDirection(gamepad.leftThumbstick)
-                self.sendMoveData(gamepad.leftThumbstick, gamepad.leftTrigger, gamepad.rightTrigger)
+                self.sendMoveData(gamepad.leftThumbstick, gamepad.leftThumbstickButton, gamepad.leftTrigger, gamepad.rightTrigger)
             }
             if (gamepad.rightThumbstick == element) {
                 self.rightThumbstick = gamepad.rightThumbstick
@@ -161,6 +162,11 @@ class ContentViewModel: ObservableObject {
 
     func sendMoveData(_ leftThumbstick: GCControllerDirectionPad, _ leftTrigger: GCControllerButtonInput, _ rightTrigger: GCControllerButtonInput) {
         let moveData = CarDriver.getCarMove(xAxisValue: leftThumbstick.xAxis.value, leftTriggerValue: leftTrigger.value, rightTriggerValue: rightTrigger.value)
+        self.socketClient.carMove(moveData)
+    }
+
+    func sendMoveData(_ leftThumbstick: GCControllerDirectionPad, _ leftThumbstickButton: GCControllerButtonInput?, _ leftTrigger: GCControllerButtonInput, _ rightTrigger: GCControllerButtonInput) {
+        let moveData = CarDriver.getCarMove(xAxisValue: leftThumbstick.xAxis.value, leftThumbstickPress: leftThumbstickButton?.isPressed ?? false, leftTriggerValue: leftTrigger.value, rightTriggerValue: rightTrigger.value)
         self.socketClient.carMove(moveData)
     }
 }
