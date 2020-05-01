@@ -15,7 +15,7 @@ class SocketClient: ObservableObject {
     private var socket: SocketIOClient
 
     init() {
-        manager = SocketManager(socketURL: URL(string: "http://0.0.0.0:8080")!, config: [.log(true)])
+        manager = SocketManager(socketURL: URL(string: "http://192.168.3.14:8080")!, config: [.log(true), .compress])
         socket = manager.defaultSocket
         setupSocket()
     }
